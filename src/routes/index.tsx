@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Search, FileText, MessageSquare,
+  ArrowRight, ArrowUpRight, Search, FileText, MessageSquare,
   ShieldCheck, FileSearch, Database, Building2, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Twitter,
   BarChart3, BookOpen, Coins, Calendar, Inbox,
 } from "lucide-react";
@@ -12,6 +12,7 @@ import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
 import news3 from "@/assets/news-3.jpg";
 import regent from "@/assets/regent-portrait.jpg";
+import kutimLogo from "@/assets/kutim-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -45,44 +46,41 @@ function Hero() {
   const b = useCounter(3128);
   const c = useCounter(98);
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden pt-16">
-      {/* Mesh aura background */}
-      <div className="absolute inset-0 mesh-aura opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/30 to-white" />
-      {/* Batik motifs in corners */}
-      <div className="absolute -top-10 right-0 w-[420px] h-[420px] text-mesh-emerald" style={{ opacity: 0.22 }}>
+    <section className="relative flex items-end overflow-hidden pt-14 min-h-[88vh]">
+      <div className="absolute inset-0 mesh-aura opacity-35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/35 to-white" />
+      <div className="absolute -top-8 right-0 w-[320px] h-[320px] text-mesh-emerald" style={{ opacity: 0.2 }}>
         <BatikMotif className="h-full w-full" />
       </div>
-      <div className="absolute -bottom-10 right-10 w-[320px] h-[320px] text-mesh-purple" style={{ opacity: 0.2 }}>
+      <div className="absolute -bottom-8 right-8 w-[240px] h-[240px] text-mesh-purple" style={{ opacity: 0.18 }}>
         <BatikMotif className="h-full w-full" flip />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-20 pt-12 grid lg:grid-cols-[1.45fr_1fr] gap-16 items-end">
-        {/* Left */}
+      <div className="relative mx-auto w-full max-w-[1200px] px-5 pb-14 pt-8 grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-14 items-end">
         <div>
-          <div className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.22em] text-forest-soft">
-            <span className="h-px w-8 bg-forest-soft/50" /> Pemerintah Kabupaten Kutai Timur
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-forest-soft">
+            <img src={kutimLogo} alt="" className="h-6 w-auto" />
+            <span className="h-px w-6 bg-forest-soft/50" /> Pemerintah Kabupaten Kutai Timur
           </div>
-          <h1 className="mt-6 font-serif text-[44px] leading-[1.05] sm:text-[56px] lg:text-[72px] text-forest">
+          <h1 className="mt-5 font-serif text-[32px] leading-[1.08] sm:text-[42px] lg:text-[52px] text-forest">
             Informasi publik <br />
             yang <em className="not-italic font-normal text-mesh italic">terbuka, akurat,</em> <br />
             untuk seluruh masyarakat.
           </h1>
-          <p className="mt-6 max-w-xl text-[15px] sm:text-base text-forest-soft leading-relaxed">
+          <p className="mt-5 max-w-lg text-[14px] sm:text-[15px] text-forest-soft leading-relaxed">
             Portal resmi PPID Kabupaten Kutai Timur — gerbang tunggal menuju dokumen, berita, dan layanan informasi dari 40+ instansi pemerintah daerah.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#permohonan" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-gold-foreground shadow-sm hover:shadow-lg transition-shadow">
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            <a href="#permohonan" className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-[13px] font-semibold text-gold-foreground shadow-sm hover:shadow-lg transition-shadow">
               Ajukan Permohonan Informasi <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#data" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white/60 backdrop-blur px-6 py-3.5 text-sm font-semibold text-forest hover:border-forest/50">
+            <a href="#data" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white/60 backdrop-blur px-5 py-3 text-[13px] font-semibold text-forest hover:border-forest/50">
               Telusuri Dokumen
             </a>
           </div>
         </div>
 
-        {/* Right — stats stacked */}
-        <div className="space-y-8 lg:pl-12 lg:border-l border-border">
+        <div className="space-y-6 lg:pl-10 lg:border-l border-border">
           <Stat reff={a.ref} value={a.val} suffix="+" label="Instansi (OPD/SKPD) terhubung" />
           <Stat reff={b.ref} value={b.val} label="Dokumen publik tersedia" />
           <Stat reff={c.ref} value={c.val} suffix="%" label="Tingkat respons permohonan" highlight />
@@ -95,10 +93,10 @@ function Hero() {
 function Stat({ reff, value, suffix = "", label, highlight = false }: { reff: any; value: number; suffix?: string; label: string; highlight?: boolean }) {
   return (
     <div ref={reff}>
-      <div className={`font-serif font-light leading-none text-[64px] sm:text-[80px] tracking-tight ${highlight ? "text-gold" : "text-forest"}`}>
+      <div className={`font-serif font-light leading-none text-[44px] sm:text-[56px] tracking-tight ${highlight ? "text-gold" : "text-forest"}`}>
         {value.toLocaleString("id-ID")}{suffix}
       </div>
-      <div className="mt-2 text-sm text-forest-soft max-w-[14rem]">{label}</div>
+      <div className="mt-1.5 text-[13px] text-forest-soft max-w-[14rem]">{label}</div>
     </div>
   );
 }
@@ -135,38 +133,33 @@ function Ticker() {
 function RegentMessage() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32">
-      <div className="mx-auto max-w-[1280px] px-6 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-        {/* Photo with gradient corner brackets */}
-        <div className="relative">
+    <section ref={ref} className="reveal py-16 sm:py-20">
+      <div className="mx-auto max-w-[1200px] px-5 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="relative max-w-sm mx-auto lg:max-w-none">
           <CornerBrackets />
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
             <img src={regent} alt="Bupati Kutai Timur" className="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div className="absolute -bottom-6 -right-6 sm:-right-10 bg-white border border-border rounded-xl px-5 py-4 shadow-[0_18px_40px_-22px_rgba(10,35,24,0.25)]">
-            <div className="text-[11px] uppercase tracking-widest text-forest-soft">Bupati Kutai Timur</div>
-            <div className="mt-1 font-serif text-xl text-forest">H. Ardiansyah Sulaiman</div>
+          <div className="absolute -bottom-5 -right-4 sm:-right-8 bg-white border border-border rounded-xl px-4 py-3 shadow-[0_18px_40px_-22px_rgba(10,35,24,0.25)]">
+            <div className="text-[10px] uppercase tracking-widest text-forest-soft">Bupati Kutai Timur</div>
+            <div className="mt-0.5 font-serif text-base text-forest">H. Ardiansyah Sulaiman</div>
           </div>
         </div>
 
-        {/* Right text */}
         <div>
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-forest-soft">
+          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-forest-soft">
             <span className="h-px w-6 bg-forest-soft/50" /> Sambutan Bupati
           </div>
-          <blockquote className="mt-6 font-serif text-[28px] sm:text-[36px] leading-[1.2] text-forest italic font-light">
+          <blockquote className="mt-4 font-serif text-[22px] sm:text-[28px] leading-[1.25] text-forest italic font-light">
             “Keterbukaan informasi adalah <span className="text-mesh not-italic">fondasi kepercayaan</span> antara pemerintah dan masyarakat Kutai Timur.”
           </blockquote>
-          <p className="mt-6 text-forest-soft leading-relaxed">
+          <p className="mt-5 text-[14px] text-forest-soft leading-relaxed">
             Melalui PPID, kami berkomitmen menghadirkan layanan informasi yang cepat, mudah diakses, dan dapat dipertanggungjawabkan. Setiap dokumen yang dibuka adalah langkah menuju tata kelola yang lebih baik.
           </p>
-          <p className="mt-4 text-forest-soft leading-relaxed">
-            Mari kita wujudkan Kutai Timur yang transparan, partisipatif, dan akuntabel — bersama.
-          </p>
-          <div className="mt-8 flex items-center gap-4">
-            <span className="font-serif italic text-2xl text-forest">Ardiansyah</span>
+          <div className="mt-6 flex items-center gap-4">
+            <span className="font-serif italic text-xl text-forest">Ardiansyah</span>
             <span className="h-px flex-1 bg-border" />
-            <span className="text-xs text-forest-soft">Bupati Kutai Timur</span>
+            <span className="text-[11px] text-forest-soft">Bupati Kutai Timur</span>
           </div>
         </div>
       </div>
@@ -190,81 +183,79 @@ function CornerBrackets() {
   );
 }
 
-/* ===================== SECTION 4 — NEWS SLIDER ===================== */
+/* ===================== SECTION 4 — NEWS (magazine layout) ===================== */
 function NewsSlider() {
-  const slides = [
-    {
-      featured: { img: news1, tag: "Setda", tagColor: "bg-mesh-emerald", title: "Kutai Timur perkuat ekosistem keterbukaan informasi di 18 kecamatan", date: "12 Mei 2026", excerpt: "Program ini menargetkan akses informasi publik yang merata hingga ke pelosok wilayah." },
-      side: [
-        { img: news2, tag: "BPKAD", tagColor: "bg-mesh-sky", title: "Realisasi APBD Triwulan I capai 28,4%", date: "9 Mei 2026" },
-        { img: news3, tag: "Diskominfo", tagColor: "bg-mesh-purple", title: "Layanan PPID keliling jangkau 14 desa", date: "5 Mei 2026" },
-      ],
-    },
-    {
-      featured: { img: news2, tag: "Bappeda", tagColor: "bg-mesh-sky", title: "Forum Konsultasi Publik RKPD 2027 resmi dibuka", date: "2 Mei 2026", excerpt: "Pemerintah daerah membuka ruang dialog dengan masyarakat dan pemangku kepentingan." },
-      side: [
-        { img: news1, tag: "Dinkes", tagColor: "bg-mesh-emerald", title: "Inovasi Posyandu digital diadopsi 32 desa", date: "28 Apr 2026" },
-        { img: news3, tag: "Disdikbud", tagColor: "bg-mesh-purple", title: "Beasiswa anak Kutim 2026 dibuka pendaftarannya", date: "24 Apr 2026" },
-      ],
-    },
+  const allNews = [
+    { img: news1, tag: "Setda", tagColor: "bg-emerald-600", title: "Kutai Timur perkuat ekosistem keterbukaan informasi di 18 kecamatan", date: "12 Mei 2026", excerpt: "Akses informasi publik yang merata hingga ke pelosok wilayah." },
+    { img: news2, tag: "BPKAD", tagColor: "bg-sky-600", title: "Realisasi APBD Triwulan I capai 28,4%", date: "9 Mei 2026", excerpt: "Penyerapan anggaran terus dipantau secara berkala." },
+    { img: news3, tag: "Diskominfo", tagColor: "bg-violet-600", title: "Layanan PPID keliling jangkau 14 desa", date: "5 Mei 2026", excerpt: "Mendekatkan layanan informasi ke masyarakat desa." },
+    { img: news2, tag: "Bappeda", tagColor: "bg-amber-600", title: "Forum Konsultasi Publik RKPD 2027 resmi dibuka", date: "2 Mei 2026", excerpt: "Membuka ruang dialog dengan pemangku kepentingan." },
+    { img: news1, tag: "Dinkes", tagColor: "bg-rose-600", title: "Inovasi Posyandu digital diadopsi 32 desa", date: "28 Apr 2026", excerpt: "Transformasi layanan kesehatan dasar berbasis data." },
   ];
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 5000);
-    return () => clearInterval(t);
-  }, [slides.length]);
-  const cur = slides[idx];
+  const [active, setActive] = useState(0);
+  const featured = allNews[active];
+  const others = allNews.filter((_, i) => i !== active);
   const ref = useReveal<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32" style={{ background: "#f8f8f8" }}>
-      <div className="mx-auto max-w-[1280px] px-6">
+    <section ref={ref} className="reveal py-16 sm:py-20" style={{ background: "#f8f8f8" }}>
+      <div className="mx-auto max-w-[1200px] px-5">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Berita lintas OPD</div>
-            <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-xl">Kabar terbaru dari <em className="not-italic text-mesh">40+ instansi</em></h2>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Berita lintas OPD</div>
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-xl">
+              Kabar terbaru dari <em className="not-italic text-mesh">40+ instansi</em>
+            </h2>
           </div>
-          <div className="flex items-center gap-2">
-            <button onClick={() => setIdx((i) => (i - 1 + slides.length) % slides.length)} className="h-11 w-11 grid place-items-center rounded-full border border-border bg-white hover:bg-cream"><ChevronLeft className="h-4 w-4" /></button>
-            <button onClick={() => setIdx((i) => (i + 1) % slides.length)} className="h-11 w-11 grid place-items-center rounded-full border border-border bg-white hover:bg-cream"><ChevronRight className="h-4 w-4" /></button>
-          </div>
+          <a href="#" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-forest hover:gap-2.5 transition-all">
+            Semua berita <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
 
-        <div className="mt-10 grid lg:grid-cols-[1.4fr_1fr] gap-6">
-          {/* Featured */}
-          <article className="hover-glow group rounded-2xl bg-white border border-border overflow-hidden">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              <img src={cur.featured.img} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
-              <span className={`absolute top-4 left-4 ${cur.featured.tagColor} text-white text-[11px] font-semibold rounded-full px-3 py-1`}>{cur.featured.tag}</span>
-            </div>
-            <div className="p-7">
-              <div className="text-xs text-forest-soft inline-flex items-center gap-1.5"><Calendar className="h-3 w-3" /> {cur.featured.date}</div>
-              <h3 className="mt-3 font-serif text-2xl sm:text-3xl text-forest leading-snug">{cur.featured.title}</h3>
-              <p className="mt-3 text-forest-soft leading-relaxed">{cur.featured.excerpt}</p>
+        <div className="mt-8 grid lg:grid-cols-[1.5fr_1fr] gap-5">
+          {/* Featured — image with overlay */}
+          <article className="group relative overflow-hidden rounded-3xl aspect-[16/11] cursor-pointer">
+            <img src={featured.img} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+            <span className={`absolute top-4 left-4 ${featured.tagColor} text-white text-[10px] font-semibold uppercase tracking-wider rounded-full px-3 py-1`}>
+              {featured.tag}
+            </span>
+            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 text-white">
+              <div className="flex items-center gap-2 text-[11px] text-white/85">
+                <Calendar className="h-3 w-3" /> {featured.date}
+              </div>
+              <h3 className="mt-2 font-serif text-xl sm:text-2xl leading-snug">{featured.title}</h3>
+              <p className="mt-2 text-[13px] text-white/80 max-w-lg leading-relaxed">{featured.excerpt}</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-white/95 group-hover:gap-2.5 transition-all">
+                Baca selengkapnya <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
           </article>
 
-          {/* Side */}
-          <div className="grid grid-rows-2 gap-6">
-            {cur.side.map((s, i) => (
-              <article key={i} className="hover-glow group rounded-2xl bg-white border border-border overflow-hidden grid grid-cols-[40%_1fr]">
-                <div className="relative overflow-hidden">
-                  <img src={s.img} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
-                  <span className={`absolute top-3 left-3 ${s.tagColor} text-white text-[10px] font-semibold rounded-full px-2.5 py-0.5`}>{s.tag}</span>
-                </div>
-                <div className="p-5 flex flex-col justify-between">
-                  <h3 className="font-serif text-lg text-forest leading-snug">{s.title}</h3>
-                  <div className="text-xs text-forest-soft inline-flex items-center gap-1.5"><Calendar className="h-3 w-3" /> {s.date}</div>
-                </div>
-              </article>
-            ))}
+          {/* Side list — compact, clickable to feature */}
+          <div className="flex flex-col gap-3">
+            {others.slice(0, 4).map((n) => {
+              const realIdx = allNews.indexOf(n);
+              return (
+                <button
+                  key={realIdx}
+                  onClick={() => setActive(realIdx)}
+                  className="group text-left flex gap-3 p-2.5 rounded-2xl bg-white border border-transparent hover:border-border hover:shadow-[0_12px_30px_-18px_rgba(10,35,24,0.18)] transition-all"
+                >
+                  <div className="relative w-24 h-20 shrink-0 overflow-hidden rounded-xl">
+                    <img src={n.img} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <span className={`absolute top-1.5 left-1.5 ${n.tagColor} text-white text-[9px] font-semibold rounded-full px-1.5 py-0.5`}>{n.tag}</span>
+                  </div>
+                  <div className="flex-1 min-w-0 py-0.5">
+                    <h4 className="font-serif text-[15px] text-forest leading-snug line-clamp-2 group-hover:text-mesh-emerald transition-colors">{n.title}</h4>
+                    <div className="mt-1.5 text-[11px] text-forest-soft inline-flex items-center gap-1.5">
+                      <Calendar className="h-3 w-3" /> {n.date}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
-        </div>
-
-        <div className="mt-8 flex justify-center gap-2">
-          {slides.map((_, i) => (
-            <button key={i} onClick={() => setIdx(i)} className={`h-1.5 rounded-full transition-all ${idx === i ? "w-8 bg-forest" : "w-2 bg-forest/25"}`} aria-label={`Slide ${i + 1}`} />
-          ))}
         </div>
       </div>
     </section>
@@ -283,21 +274,21 @@ function Services() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal relative py-24 sm:py-32 bg-white overflow-hidden">
+    <section ref={ref} className="reveal relative py-16 sm:py-20 bg-white overflow-hidden">
       <div className="absolute inset-0 batik-tile text-forest" style={{ opacity: 0.04 }} />
-      <div className="relative mx-auto max-w-[1280px] px-6">
-        <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Layanan Utama</div>
-        <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-2xl">Enam pintu menuju <em className="not-italic text-mesh">informasi publik</em></h2>
+      <div className="relative mx-auto max-w-[1200px] px-5">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Layanan Utama</div>
+        <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-2xl">Enam pintu menuju <em className="not-italic text-mesh">informasi publik</em></h2>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((s) => (
-            <a key={s.name} href="#" className="gradient-bottom group relative bg-white border border-border rounded-2xl p-7 overflow-hidden">
-              <ArrowUpRight className="absolute top-5 right-5 h-4 w-4 text-forest-soft group-hover:text-forest transition-colors" />
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-cream text-forest group-hover:text-mesh-emerald transition-colors">
-                <s.icon className="h-6 w-6" />
+            <a key={s.name} href="#" className="gradient-bottom group relative bg-white border border-border rounded-2xl p-5 overflow-hidden">
+              <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-forest-soft group-hover:text-forest transition-colors" />
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-cream text-forest group-hover:text-mesh-emerald transition-colors">
+                <s.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-6 font-serif text-xl text-forest">{s.name}</h3>
-              <p className="mt-2 text-sm text-forest-soft leading-relaxed">{s.desc}</p>
+              <h3 className="mt-4 font-serif text-lg text-forest">{s.name}</h3>
+              <p className="mt-1.5 text-[13px] text-forest-soft leading-relaxed">{s.desc}</p>
             </a>
           ))}
         </div>
@@ -317,28 +308,28 @@ function DataSnapshot() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} id="data" className="reveal relative py-24 sm:py-32 mesh-full text-white overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 grid lg:grid-cols-[1fr_1.2fr] gap-14 items-start">
+    <section ref={ref} id="data" className="reveal relative py-16 sm:py-20 mesh-full text-white overflow-hidden">
+      <div className="mx-auto max-w-[1200px] px-5 grid lg:grid-cols-[1fr_1.2fr] gap-10 items-start">
         <div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-white/70">PPID dalam angka</div>
-          <h2 className="mt-3 font-serif text-4xl sm:text-5xl leading-tight">Ribuan dokumen, <em className="not-italic">satu pintu akses.</em></h2>
-          <p className="mt-5 max-w-md text-white/70 leading-relaxed text-[15px]">
+          <div className="text-[10px] uppercase tracking-[0.22em] text-white/70">PPID dalam angka</div>
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight">Ribuan dokumen, <em className="not-italic">satu pintu akses.</em></h2>
+          <p className="mt-4 max-w-md text-white/75 leading-relaxed text-[14px]">
             Seluruh informasi publik Kabupaten Kutai Timur telah diklasifikasikan sesuai standar Komisi Informasi — siap untuk Anda telusuri kapan saja.
           </p>
-          <a href="#" className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold hover:bg-white hover:text-forest transition-colors">
+          <a href="#" className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-[13px] font-semibold hover:bg-white hover:text-forest transition-colors">
             Telusuri Semua Data <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-3.5">
           {cats.map((c, i) => (
-            <a key={c.name} href="#" className={`glass group rounded-2xl p-6 transition-all hover:bg-white/20 ${i === 0 ? "sm:col-span-2" : ""}`}>
+            <a key={c.name} href="#" className={`glass group rounded-2xl p-5 transition-all hover:bg-white/20 ${i === 0 ? "sm:col-span-2" : ""}`}>
               <div className="flex items-start justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/15 border border-white/20"><c.icon className="h-5 w-5" /></span>
-                <ArrowUpRight className="h-5 w-5 text-white/70 group-hover:translate-x-1 transition-transform" />
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15 border border-white/20"><c.icon className="h-4.5 w-4.5" /></span>
+                <ArrowUpRight className="h-4 w-4 text-white/70 group-hover:translate-x-1 transition-transform" />
               </div>
-              <div className="mt-6 font-serif text-2xl">{c.name}</div>
-              <div className="mt-1 text-sm text-white/70">{c.count}</div>
+              <div className="mt-4 font-serif text-xl">{c.name}</div>
+              <div className="mt-0.5 text-[13px] text-white/75">{c.count}</div>
             </a>
           ))}
         </div>
@@ -355,35 +346,35 @@ function OpdDirectory() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+    <section ref={ref} className="reveal py-16 sm:py-20 bg-white">
+      <div className="mx-auto max-w-[1200px] px-5">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-5 items-end">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Direktori Instansi</div>
-            <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-xl">40+ OPD <em className="not-italic text-mesh">di ujung jari Anda</em></h2>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Direktori Instansi</div>
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-xl">40+ OPD <em className="not-italic text-mesh">di ujung jari Anda</em></h2>
           </div>
-          <div className="relative w-full lg:w-80">
+          <div className="relative w-full lg:w-72">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-forest-soft" />
-            <input placeholder="Cari nama instansi…" className="w-full rounded-full border border-border bg-cream pl-11 pr-4 py-3 text-sm focus:bg-white outline-none focus:border-forest/40" />
+            <input placeholder="Cari nama instansi…" className="w-full rounded-full border border-border bg-cream pl-11 pr-4 py-2.5 text-[13px] focus:bg-white outline-none focus:border-forest/40" />
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {opds.map((o, i) => (
-            <a key={o} href="#" className="hover-glow group rounded-2xl bg-white border border-border p-5 flex items-center gap-4 transition-transform hover:scale-[1.02]">
+            <a key={o} href="#" className="hover-glow group rounded-2xl bg-white border border-border p-4 flex items-center gap-3 transition-transform hover:scale-[1.02]">
               <span
-                className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white font-semibold text-sm"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-white font-semibold text-[12px]"
                 style={{ background: ["var(--mesh-emerald)","var(--mesh-sky)","var(--mesh-purple)","var(--forest)"][i % 4] }}
               >
                 {o.split(" ").map((w) => w[0]).join("").slice(0, 2)}
               </span>
-              <span className="text-sm font-medium text-forest leading-snug">{o}</span>
+              <span className="text-[13px] font-medium text-forest leading-snug">{o}</span>
             </a>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a href="#" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white px-6 py-3.5 text-sm font-semibold text-forest hover:border-forest">
+        <div className="mt-10 text-center">
+          <a href="#" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white px-5 py-3 text-[13px] font-semibold text-forest hover:border-forest">
             Lihat Semua OPD <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -398,19 +389,21 @@ function Footer() {
     <footer className="relative overflow-hidden text-white" style={{ background: "#0a2318" }}>
       <div className="absolute inset-0 batik-tile" style={{ color: "#e8d8b8", opacity: 0.07 }} />
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--mesh-emerald), var(--mesh-sky), var(--mesh-purple), transparent)" }} />
-      <div className="relative mx-auto max-w-[1280px] px-6 pt-20 pb-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-14 pb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-md bg-white text-forest font-serif">P</span>
-              <span className="font-serif text-xl">PPID Kutai Timur</span>
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-10 w-10 place-items-center rounded-md bg-white/95 p-1">
+                <img src={kutimLogo} alt="Lambang Kutai Timur" className="h-full w-auto" />
+              </span>
+              <span className="font-serif text-lg leading-tight">PPID<br /><span className="text-[12px] text-white/65 font-sans">Kutai Timur</span></span>
             </div>
-            <p className="mt-5 text-sm text-white/65 leading-relaxed max-w-sm">
+            <p className="mt-4 text-[13px] text-white/65 leading-relaxed max-w-sm">
               Pejabat Pengelola Informasi dan Dokumentasi Kabupaten Kutai Timur — gerbang resmi menuju informasi publik yang transparan dan akuntabel.
             </p>
-            <div className="mt-6 flex gap-2">
+            <div className="mt-5 flex gap-2">
               {[Facebook, Instagram, Youtube, Twitter].map((I, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/20 hover:bg-white hover:text-forest transition-colors"><I className="h-4 w-4" /></a>
+                <a key={i} href="#" className="grid h-8 w-8 place-items-center rounded-full border border-white/20 hover:bg-white hover:text-forest transition-colors"><I className="h-3.5 w-3.5" /></a>
               ))}
             </div>
           </div>
@@ -418,16 +411,16 @@ function Footer() {
           <FooterCol title="Layanan" items={["Permohonan Informasi","Pengaduan & Keberatan","Sengketa Informasi","Konsultasi PPID"]} />
           <FooterCol title="Tautan" items={["Profil PPID","Visi & Misi","Struktur Organisasi","Standar Layanan","Laporan Tahunan"]} />
           <div>
-            <div className="text-xs uppercase tracking-[0.22em] text-white/55">Kontak</div>
-            <ul className="mt-5 space-y-3 text-sm text-white/75">
-              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-mesh-emerald" /> Komplek Perkantoran Bukit Pelangi, Sangatta, Kutai Timur 75683</li>
-              <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-mesh-emerald" /> (0549) 21000</li>
-              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-mesh-emerald" /> ppid@kutaitimurkab.go.id</li>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-white/55">Kontak</div>
+            <ul className="mt-4 space-y-2.5 text-[13px] text-white/75">
+              <li className="flex gap-2.5"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>Komplek Perkantoran Bukit Pelangi, Sangatta, Kutai Timur 75683</span></li>
+              <li className="flex gap-2.5"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>(0549) 21000</span></li>
+              <li className="flex gap-2.5"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>ppid@kutaitimurkab.go.id</span></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
+        <div className="mt-12 pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[11px] text-white/55">
           <span>© {new Date().getFullYear()} PPID Kabupaten Kutai Timur. Hak cipta dilindungi.</span>
           <span>Berdasarkan <a href="#" className="underline-offset-2 hover:underline text-white/80">UU No. 14 Tahun 2008</a> tentang Keterbukaan Informasi Publik</span>
         </div>
