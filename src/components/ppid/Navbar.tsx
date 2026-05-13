@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronRight, FileText, Database, Building2, Newspaper, Search, FileSearch, ShieldCheck, Inbox, MessageSquare, Calendar, Filter, ArrowUpRight } from "lucide-react";
+import kutimLogo from "@/assets/kutim-logo.png";
 
 type MenuKey = "layanan" | "data" | "opd" | "berita" | null;
 
@@ -33,12 +34,12 @@ export function Navbar() {
         }`}
         onMouseLeave={() => setOpen(null)}
       >
-        <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6">
-          <a href="#" className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-md bg-forest text-white font-serif text-lg">P</span>
-            <span className="hidden sm:flex flex-col leading-none">
-              <span className="text-[13px] font-semibold tracking-wide text-forest">PPID</span>
-              <span className="text-[11px] text-forest-soft">Kutai Timur</span>
+        <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-5">
+          <a href="#" className="flex items-center gap-2.5">
+            <img src={kutimLogo} alt="Lambang Kabupaten Kutai Timur" className="h-9 w-auto" />
+            <span className="hidden sm:flex flex-col leading-tight">
+              <span className="text-[12px] font-semibold tracking-wide text-forest">PPID Kutai Timur</span>
+              <span className="text-[10px] text-forest-soft">Pemerintah Kabupaten Kutai Timur</span>
             </span>
           </a>
 
@@ -71,7 +72,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href="#permohonan"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm hover:shadow-md transition-shadow"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-[13px] font-semibold text-gold-foreground shadow-sm hover:shadow-md transition-shadow"
             >
               Ajukan Permohonan
               <ChevronRight className="h-4 w-4" />
@@ -89,7 +90,7 @@ export function Navbar() {
         {/* Mega menu popup */}
         {open && (
           <div
-            className="absolute inset-x-0 top-16 origin-top animate-fade-scale"
+            className="absolute inset-x-0 top-14 origin-top animate-fade-scale"
             style={{ animation: "fade-scale 0.2s ease-out both" }}
           >
             <div className="mx-auto max-w-[1280px] px-6 pb-6">
@@ -107,7 +108,7 @@ export function Navbar() {
       {/* Backdrop dim */}
       {open && (
         <div
-          className="fixed inset-0 top-16 z-40 bg-forest/30 backdrop-blur-[2px]"
+          className="fixed inset-0 top-14 z-40 bg-forest/30 backdrop-blur-[2px]"
           onMouseEnter={() => setOpen(null)}
           aria-hidden
         />
