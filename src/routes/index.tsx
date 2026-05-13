@@ -12,6 +12,7 @@ import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
 import news3 from "@/assets/news-3.jpg";
 import regent from "@/assets/regent-portrait.jpg";
+import kutimLogo from "@/assets/kutim-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -45,44 +46,41 @@ function Hero() {
   const b = useCounter(3128);
   const c = useCounter(98);
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden pt-16">
-      {/* Mesh aura background */}
-      <div className="absolute inset-0 mesh-aura opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/30 to-white" />
-      {/* Batik motifs in corners */}
-      <div className="absolute -top-10 right-0 w-[420px] h-[420px] text-mesh-emerald" style={{ opacity: 0.22 }}>
+    <section className="relative flex items-end overflow-hidden pt-14 min-h-[88vh]">
+      <div className="absolute inset-0 mesh-aura opacity-35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/35 to-white" />
+      <div className="absolute -top-8 right-0 w-[320px] h-[320px] text-mesh-emerald" style={{ opacity: 0.2 }}>
         <BatikMotif className="h-full w-full" />
       </div>
-      <div className="absolute -bottom-10 right-10 w-[320px] h-[320px] text-mesh-purple" style={{ opacity: 0.2 }}>
+      <div className="absolute -bottom-8 right-8 w-[240px] h-[240px] text-mesh-purple" style={{ opacity: 0.18 }}>
         <BatikMotif className="h-full w-full" flip />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1280px] px-6 pb-20 pt-12 grid lg:grid-cols-[1.45fr_1fr] gap-16 items-end">
-        {/* Left */}
+      <div className="relative mx-auto w-full max-w-[1200px] px-5 pb-14 pt-8 grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-14 items-end">
         <div>
-          <div className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.22em] text-forest-soft">
-            <span className="h-px w-8 bg-forest-soft/50" /> Pemerintah Kabupaten Kutai Timur
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-forest-soft">
+            <img src={kutimLogo} alt="" className="h-6 w-auto" />
+            <span className="h-px w-6 bg-forest-soft/50" /> Pemerintah Kabupaten Kutai Timur
           </div>
-          <h1 className="mt-6 font-serif text-[44px] leading-[1.05] sm:text-[56px] lg:text-[72px] text-forest">
+          <h1 className="mt-5 font-serif text-[32px] leading-[1.08] sm:text-[42px] lg:text-[52px] text-forest">
             Informasi publik <br />
             yang <em className="not-italic font-normal text-mesh italic">terbuka, akurat,</em> <br />
             untuk seluruh masyarakat.
           </h1>
-          <p className="mt-6 max-w-xl text-[15px] sm:text-base text-forest-soft leading-relaxed">
+          <p className="mt-5 max-w-lg text-[14px] sm:text-[15px] text-forest-soft leading-relaxed">
             Portal resmi PPID Kabupaten Kutai Timur — gerbang tunggal menuju dokumen, berita, dan layanan informasi dari 40+ instansi pemerintah daerah.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#permohonan" className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-gold-foreground shadow-sm hover:shadow-lg transition-shadow">
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            <a href="#permohonan" className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-[13px] font-semibold text-gold-foreground shadow-sm hover:shadow-lg transition-shadow">
               Ajukan Permohonan Informasi <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#data" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white/60 backdrop-blur px-6 py-3.5 text-sm font-semibold text-forest hover:border-forest/50">
+            <a href="#data" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white/60 backdrop-blur px-5 py-3 text-[13px] font-semibold text-forest hover:border-forest/50">
               Telusuri Dokumen
             </a>
           </div>
         </div>
 
-        {/* Right — stats stacked */}
-        <div className="space-y-8 lg:pl-12 lg:border-l border-border">
+        <div className="space-y-6 lg:pl-10 lg:border-l border-border">
           <Stat reff={a.ref} value={a.val} suffix="+" label="Instansi (OPD/SKPD) terhubung" />
           <Stat reff={b.ref} value={b.val} label="Dokumen publik tersedia" />
           <Stat reff={c.ref} value={c.val} suffix="%" label="Tingkat respons permohonan" highlight />
@@ -95,10 +93,10 @@ function Hero() {
 function Stat({ reff, value, suffix = "", label, highlight = false }: { reff: any; value: number; suffix?: string; label: string; highlight?: boolean }) {
   return (
     <div ref={reff}>
-      <div className={`font-serif font-light leading-none text-[64px] sm:text-[80px] tracking-tight ${highlight ? "text-gold" : "text-forest"}`}>
+      <div className={`font-serif font-light leading-none text-[44px] sm:text-[56px] tracking-tight ${highlight ? "text-gold" : "text-forest"}`}>
         {value.toLocaleString("id-ID")}{suffix}
       </div>
-      <div className="mt-2 text-sm text-forest-soft max-w-[14rem]">{label}</div>
+      <div className="mt-1.5 text-[13px] text-forest-soft max-w-[14rem]">{label}</div>
     </div>
   );
 }
