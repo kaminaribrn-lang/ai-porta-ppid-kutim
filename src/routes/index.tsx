@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Search, FileText, MessageSquare,
+  ArrowRight, ArrowUpRight, Search, FileText, MessageSquare,
   ShieldCheck, FileSearch, Database, Building2, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Twitter,
   BarChart3, BookOpen, Coins, Calendar, Inbox,
 } from "lucide-react";
