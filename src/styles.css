@@ -123,7 +123,18 @@
     radial-gradient(at 60% 80%, var(--mesh-purple) 0px, transparent 50%),
     radial-gradient(at 22% 90%, color-mix(in oklab, var(--mesh-emerald) 80%, black) 0px, transparent 55%);
 }
+/* Darker gradient — keeps mesh feel but readable on white (WCAG AA on white) */
 .text-mesh {
+  background-image: linear-gradient(110deg,
+    oklch(0.5 0.15 165),
+    oklch(0.45 0.16 250) 55%,
+    oklch(0.5 0.16 295));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Light variant for dark backgrounds */
+.text-mesh-light {
   background-image: linear-gradient(110deg, var(--mesh-emerald), var(--mesh-sky) 55%, var(--mesh-purple));
   -webkit-background-clip: text;
   background-clip: text;
