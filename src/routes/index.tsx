@@ -274,21 +274,21 @@ function Services() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal relative py-24 sm:py-32 bg-white overflow-hidden">
+    <section ref={ref} className="reveal relative py-16 sm:py-20 bg-white overflow-hidden">
       <div className="absolute inset-0 batik-tile text-forest" style={{ opacity: 0.04 }} />
-      <div className="relative mx-auto max-w-[1280px] px-6">
-        <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Layanan Utama</div>
-        <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-2xl">Enam pintu menuju <em className="not-italic text-mesh">informasi publik</em></h2>
+      <div className="relative mx-auto max-w-[1200px] px-5">
+        <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Layanan Utama</div>
+        <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-2xl">Enam pintu menuju <em className="not-italic text-mesh">informasi publik</em></h2>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((s) => (
-            <a key={s.name} href="#" className="gradient-bottom group relative bg-white border border-border rounded-2xl p-7 overflow-hidden">
-              <ArrowUpRight className="absolute top-5 right-5 h-4 w-4 text-forest-soft group-hover:text-forest transition-colors" />
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-cream text-forest group-hover:text-mesh-emerald transition-colors">
-                <s.icon className="h-6 w-6" />
+            <a key={s.name} href="#" className="gradient-bottom group relative bg-white border border-border rounded-2xl p-5 overflow-hidden">
+              <ArrowUpRight className="absolute top-4 right-4 h-4 w-4 text-forest-soft group-hover:text-forest transition-colors" />
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-cream text-forest group-hover:text-mesh-emerald transition-colors">
+                <s.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-6 font-serif text-xl text-forest">{s.name}</h3>
-              <p className="mt-2 text-sm text-forest-soft leading-relaxed">{s.desc}</p>
+              <h3 className="mt-4 font-serif text-lg text-forest">{s.name}</h3>
+              <p className="mt-1.5 text-[13px] text-forest-soft leading-relaxed">{s.desc}</p>
             </a>
           ))}
         </div>
@@ -308,28 +308,28 @@ function DataSnapshot() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} id="data" className="reveal relative py-24 sm:py-32 mesh-full text-white overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 grid lg:grid-cols-[1fr_1.2fr] gap-14 items-start">
+    <section ref={ref} id="data" className="reveal relative py-16 sm:py-20 mesh-full text-white overflow-hidden">
+      <div className="mx-auto max-w-[1200px] px-5 grid lg:grid-cols-[1fr_1.2fr] gap-10 items-start">
         <div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-white/70">PPID dalam angka</div>
-          <h2 className="mt-3 font-serif text-4xl sm:text-5xl leading-tight">Ribuan dokumen, <em className="not-italic">satu pintu akses.</em></h2>
-          <p className="mt-5 max-w-md text-white/70 leading-relaxed text-[15px]">
+          <div className="text-[10px] uppercase tracking-[0.22em] text-white/70">PPID dalam angka</div>
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight">Ribuan dokumen, <em className="not-italic">satu pintu akses.</em></h2>
+          <p className="mt-4 max-w-md text-white/75 leading-relaxed text-[14px]">
             Seluruh informasi publik Kabupaten Kutai Timur telah diklasifikasikan sesuai standar Komisi Informasi — siap untuk Anda telusuri kapan saja.
           </p>
-          <a href="#" className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold hover:bg-white hover:text-forest transition-colors">
+          <a href="#" className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-3 text-[13px] font-semibold hover:bg-white hover:text-forest transition-colors">
             Telusuri Semua Data <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-3.5">
           {cats.map((c, i) => (
-            <a key={c.name} href="#" className={`glass group rounded-2xl p-6 transition-all hover:bg-white/20 ${i === 0 ? "sm:col-span-2" : ""}`}>
+            <a key={c.name} href="#" className={`glass group rounded-2xl p-5 transition-all hover:bg-white/20 ${i === 0 ? "sm:col-span-2" : ""}`}>
               <div className="flex items-start justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/15 border border-white/20"><c.icon className="h-5 w-5" /></span>
-                <ArrowUpRight className="h-5 w-5 text-white/70 group-hover:translate-x-1 transition-transform" />
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15 border border-white/20"><c.icon className="h-4.5 w-4.5" /></span>
+                <ArrowUpRight className="h-4 w-4 text-white/70 group-hover:translate-x-1 transition-transform" />
               </div>
-              <div className="mt-6 font-serif text-2xl">{c.name}</div>
-              <div className="mt-1 text-sm text-white/70">{c.count}</div>
+              <div className="mt-4 font-serif text-xl">{c.name}</div>
+              <div className="mt-0.5 text-[13px] text-white/75">{c.count}</div>
             </a>
           ))}
         </div>
@@ -346,35 +346,35 @@ function OpdDirectory() {
   ];
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-6 items-end">
+    <section ref={ref} className="reveal py-16 sm:py-20 bg-white">
+      <div className="mx-auto max-w-[1200px] px-5">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-5 items-end">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Direktori Instansi</div>
-            <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-xl">40+ OPD <em className="not-italic text-mesh">di ujung jari Anda</em></h2>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Direktori Instansi</div>
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-xl">40+ OPD <em className="not-italic text-mesh">di ujung jari Anda</em></h2>
           </div>
-          <div className="relative w-full lg:w-80">
+          <div className="relative w-full lg:w-72">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-forest-soft" />
-            <input placeholder="Cari nama instansi…" className="w-full rounded-full border border-border bg-cream pl-11 pr-4 py-3 text-sm focus:bg-white outline-none focus:border-forest/40" />
+            <input placeholder="Cari nama instansi…" className="w-full rounded-full border border-border bg-cream pl-11 pr-4 py-2.5 text-[13px] focus:bg-white outline-none focus:border-forest/40" />
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {opds.map((o, i) => (
-            <a key={o} href="#" className="hover-glow group rounded-2xl bg-white border border-border p-5 flex items-center gap-4 transition-transform hover:scale-[1.02]">
+            <a key={o} href="#" className="hover-glow group rounded-2xl bg-white border border-border p-4 flex items-center gap-3 transition-transform hover:scale-[1.02]">
               <span
-                className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white font-semibold text-sm"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-white font-semibold text-[12px]"
                 style={{ background: ["var(--mesh-emerald)","var(--mesh-sky)","var(--mesh-purple)","var(--forest)"][i % 4] }}
               >
                 {o.split(" ").map((w) => w[0]).join("").slice(0, 2)}
               </span>
-              <span className="text-sm font-medium text-forest leading-snug">{o}</span>
+              <span className="text-[13px] font-medium text-forest leading-snug">{o}</span>
             </a>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a href="#" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white px-6 py-3.5 text-sm font-semibold text-forest hover:border-forest">
+        <div className="mt-10 text-center">
+          <a href="#" className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white px-5 py-3 text-[13px] font-semibold text-forest hover:border-forest">
             Lihat Semua OPD <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -389,19 +389,21 @@ function Footer() {
     <footer className="relative overflow-hidden text-white" style={{ background: "#0a2318" }}>
       <div className="absolute inset-0 batik-tile" style={{ color: "#e8d8b8", opacity: 0.07 }} />
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--mesh-emerald), var(--mesh-sky), var(--mesh-purple), transparent)" }} />
-      <div className="relative mx-auto max-w-[1280px] px-6 pt-20 pb-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="relative mx-auto max-w-[1200px] px-5 pt-14 pb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-md bg-white text-forest font-serif">P</span>
-              <span className="font-serif text-xl">PPID Kutai Timur</span>
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-10 w-10 place-items-center rounded-md bg-white/95 p-1">
+                <img src={kutimLogo} alt="Lambang Kutai Timur" className="h-full w-auto" />
+              </span>
+              <span className="font-serif text-lg leading-tight">PPID<br /><span className="text-[12px] text-white/65 font-sans">Kutai Timur</span></span>
             </div>
-            <p className="mt-5 text-sm text-white/65 leading-relaxed max-w-sm">
+            <p className="mt-4 text-[13px] text-white/65 leading-relaxed max-w-sm">
               Pejabat Pengelola Informasi dan Dokumentasi Kabupaten Kutai Timur — gerbang resmi menuju informasi publik yang transparan dan akuntabel.
             </p>
-            <div className="mt-6 flex gap-2">
+            <div className="mt-5 flex gap-2">
               {[Facebook, Instagram, Youtube, Twitter].map((I, i) => (
-                <a key={i} href="#" className="grid h-9 w-9 place-items-center rounded-full border border-white/20 hover:bg-white hover:text-forest transition-colors"><I className="h-4 w-4" /></a>
+                <a key={i} href="#" className="grid h-8 w-8 place-items-center rounded-full border border-white/20 hover:bg-white hover:text-forest transition-colors"><I className="h-3.5 w-3.5" /></a>
               ))}
             </div>
           </div>
@@ -409,16 +411,16 @@ function Footer() {
           <FooterCol title="Layanan" items={["Permohonan Informasi","Pengaduan & Keberatan","Sengketa Informasi","Konsultasi PPID"]} />
           <FooterCol title="Tautan" items={["Profil PPID","Visi & Misi","Struktur Organisasi","Standar Layanan","Laporan Tahunan"]} />
           <div>
-            <div className="text-xs uppercase tracking-[0.22em] text-white/55">Kontak</div>
-            <ul className="mt-5 space-y-3 text-sm text-white/75">
-              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-mesh-emerald" /> Komplek Perkantoran Bukit Pelangi, Sangatta, Kutai Timur 75683</li>
-              <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-mesh-emerald" /> (0549) 21000</li>
-              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-mesh-emerald" /> ppid@kutaitimurkab.go.id</li>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-white/55">Kontak</div>
+            <ul className="mt-4 space-y-2.5 text-[13px] text-white/75">
+              <li className="flex gap-2.5"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>Komplek Perkantoran Bukit Pelangi, Sangatta, Kutai Timur 75683</span></li>
+              <li className="flex gap-2.5"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>(0549) 21000</span></li>
+              <li className="flex gap-2.5"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-mesh-emerald" /><span>ppid@kutaitimurkab.go.id</span></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/55">
+        <div className="mt-12 pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[11px] text-white/55">
           <span>© {new Date().getFullYear()} PPID Kabupaten Kutai Timur. Hak cipta dilindungi.</span>
           <span>Berdasarkan <a href="#" className="underline-offset-2 hover:underline text-white/80">UU No. 14 Tahun 2008</a> tentang Keterbukaan Informasi Publik</span>
         </div>
