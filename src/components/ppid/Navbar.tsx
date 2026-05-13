@@ -331,8 +331,8 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
       <div className="relative w-[88%] max-w-sm bg-white h-full overflow-y-auto p-6 shadow-2xl">
         <div className="absolute top-0 right-0 w-40 h-40 batik-tile text-forest" style={{ opacity: 0.04 }} />
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-forest text-white font-serif text-base">P</span>
+          <div className="flex items-center gap-2.5">
+            <img src={kutimLogo} alt="Lambang Kutai Timur" className="h-9 w-auto" />
             <span className="font-semibold text-forest text-sm">PPID Kutai Timur</span>
           </div>
           <button onClick={onClose} className="grid h-9 w-9 place-items-center rounded-md hover:bg-cream"><X className="h-5 w-5" /></button>
