@@ -133,38 +133,33 @@ function Ticker() {
 function RegentMessage() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32">
-      <div className="mx-auto max-w-[1280px] px-6 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-        {/* Photo with gradient corner brackets */}
-        <div className="relative">
+    <section ref={ref} className="reveal py-16 sm:py-20">
+      <div className="mx-auto max-w-[1200px] px-5 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="relative max-w-sm mx-auto lg:max-w-none">
           <CornerBrackets />
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
             <img src={regent} alt="Bupati Kutai Timur" className="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div className="absolute -bottom-6 -right-6 sm:-right-10 bg-white border border-border rounded-xl px-5 py-4 shadow-[0_18px_40px_-22px_rgba(10,35,24,0.25)]">
-            <div className="text-[11px] uppercase tracking-widest text-forest-soft">Bupati Kutai Timur</div>
-            <div className="mt-1 font-serif text-xl text-forest">H. Ardiansyah Sulaiman</div>
+          <div className="absolute -bottom-5 -right-4 sm:-right-8 bg-white border border-border rounded-xl px-4 py-3 shadow-[0_18px_40px_-22px_rgba(10,35,24,0.25)]">
+            <div className="text-[10px] uppercase tracking-widest text-forest-soft">Bupati Kutai Timur</div>
+            <div className="mt-0.5 font-serif text-base text-forest">H. Ardiansyah Sulaiman</div>
           </div>
         </div>
 
-        {/* Right text */}
         <div>
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-forest-soft">
+          <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-forest-soft">
             <span className="h-px w-6 bg-forest-soft/50" /> Sambutan Bupati
           </div>
-          <blockquote className="mt-6 font-serif text-[28px] sm:text-[36px] leading-[1.2] text-forest italic font-light">
+          <blockquote className="mt-4 font-serif text-[22px] sm:text-[28px] leading-[1.25] text-forest italic font-light">
             “Keterbukaan informasi adalah <span className="text-mesh not-italic">fondasi kepercayaan</span> antara pemerintah dan masyarakat Kutai Timur.”
           </blockquote>
-          <p className="mt-6 text-forest-soft leading-relaxed">
+          <p className="mt-5 text-[14px] text-forest-soft leading-relaxed">
             Melalui PPID, kami berkomitmen menghadirkan layanan informasi yang cepat, mudah diakses, dan dapat dipertanggungjawabkan. Setiap dokumen yang dibuka adalah langkah menuju tata kelola yang lebih baik.
           </p>
-          <p className="mt-4 text-forest-soft leading-relaxed">
-            Mari kita wujudkan Kutai Timur yang transparan, partisipatif, dan akuntabel — bersama.
-          </p>
-          <div className="mt-8 flex items-center gap-4">
-            <span className="font-serif italic text-2xl text-forest">Ardiansyah</span>
+          <div className="mt-6 flex items-center gap-4">
+            <span className="font-serif italic text-xl text-forest">Ardiansyah</span>
             <span className="h-px flex-1 bg-border" />
-            <span className="text-xs text-forest-soft">Bupati Kutai Timur</span>
+            <span className="text-[11px] text-forest-soft">Bupati Kutai Timur</span>
           </div>
         </div>
       </div>
