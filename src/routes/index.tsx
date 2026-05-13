@@ -183,81 +183,79 @@ function CornerBrackets() {
   );
 }
 
-/* ===================== SECTION 4 — NEWS SLIDER ===================== */
+/* ===================== SECTION 4 — NEWS (magazine layout) ===================== */
 function NewsSlider() {
-  const slides = [
-    {
-      featured: { img: news1, tag: "Setda", tagColor: "bg-mesh-emerald", title: "Kutai Timur perkuat ekosistem keterbukaan informasi di 18 kecamatan", date: "12 Mei 2026", excerpt: "Program ini menargetkan akses informasi publik yang merata hingga ke pelosok wilayah." },
-      side: [
-        { img: news2, tag: "BPKAD", tagColor: "bg-mesh-sky", title: "Realisasi APBD Triwulan I capai 28,4%", date: "9 Mei 2026" },
-        { img: news3, tag: "Diskominfo", tagColor: "bg-mesh-purple", title: "Layanan PPID keliling jangkau 14 desa", date: "5 Mei 2026" },
-      ],
-    },
-    {
-      featured: { img: news2, tag: "Bappeda", tagColor: "bg-mesh-sky", title: "Forum Konsultasi Publik RKPD 2027 resmi dibuka", date: "2 Mei 2026", excerpt: "Pemerintah daerah membuka ruang dialog dengan masyarakat dan pemangku kepentingan." },
-      side: [
-        { img: news1, tag: "Dinkes", tagColor: "bg-mesh-emerald", title: "Inovasi Posyandu digital diadopsi 32 desa", date: "28 Apr 2026" },
-        { img: news3, tag: "Disdikbud", tagColor: "bg-mesh-purple", title: "Beasiswa anak Kutim 2026 dibuka pendaftarannya", date: "24 Apr 2026" },
-      ],
-    },
+  const allNews = [
+    { img: news1, tag: "Setda", tagColor: "bg-emerald-600", title: "Kutai Timur perkuat ekosistem keterbukaan informasi di 18 kecamatan", date: "12 Mei 2026", excerpt: "Akses informasi publik yang merata hingga ke pelosok wilayah." },
+    { img: news2, tag: "BPKAD", tagColor: "bg-sky-600", title: "Realisasi APBD Triwulan I capai 28,4%", date: "9 Mei 2026", excerpt: "Penyerapan anggaran terus dipantau secara berkala." },
+    { img: news3, tag: "Diskominfo", tagColor: "bg-violet-600", title: "Layanan PPID keliling jangkau 14 desa", date: "5 Mei 2026", excerpt: "Mendekatkan layanan informasi ke masyarakat desa." },
+    { img: news2, tag: "Bappeda", tagColor: "bg-amber-600", title: "Forum Konsultasi Publik RKPD 2027 resmi dibuka", date: "2 Mei 2026", excerpt: "Membuka ruang dialog dengan pemangku kepentingan." },
+    { img: news1, tag: "Dinkes", tagColor: "bg-rose-600", title: "Inovasi Posyandu digital diadopsi 32 desa", date: "28 Apr 2026", excerpt: "Transformasi layanan kesehatan dasar berbasis data." },
   ];
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 5000);
-    return () => clearInterval(t);
-  }, [slides.length]);
-  const cur = slides[idx];
+  const [active, setActive] = useState(0);
+  const featured = allNews[active];
+  const others = allNews.filter((_, i) => i !== active);
   const ref = useReveal<HTMLDivElement>();
 
   return (
-    <section ref={ref} className="reveal py-24 sm:py-32" style={{ background: "#f8f8f8" }}>
-      <div className="mx-auto max-w-[1280px] px-6">
+    <section ref={ref} className="reveal py-16 sm:py-20" style={{ background: "#f8f8f8" }}>
+      <div className="mx-auto max-w-[1200px] px-5">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.22em] text-forest-soft">Berita lintas OPD</div>
-            <h2 className="mt-3 font-serif text-4xl sm:text-5xl text-forest leading-tight max-w-xl">Kabar terbaru dari <em className="not-italic text-mesh">40+ instansi</em></h2>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-forest-soft">Berita lintas OPD</div>
+            <h2 className="mt-2 font-serif text-3xl sm:text-4xl text-forest leading-tight max-w-xl">
+              Kabar terbaru dari <em className="not-italic text-mesh">40+ instansi</em>
+            </h2>
           </div>
-          <div className="flex items-center gap-2">
-            <button onClick={() => setIdx((i) => (i - 1 + slides.length) % slides.length)} className="h-11 w-11 grid place-items-center rounded-full border border-border bg-white hover:bg-cream"><ChevronLeft className="h-4 w-4" /></button>
-            <button onClick={() => setIdx((i) => (i + 1) % slides.length)} className="h-11 w-11 grid place-items-center rounded-full border border-border bg-white hover:bg-cream"><ChevronRight className="h-4 w-4" /></button>
-          </div>
+          <a href="#" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-forest hover:gap-2.5 transition-all">
+            Semua berita <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
 
-        <div className="mt-10 grid lg:grid-cols-[1.4fr_1fr] gap-6">
-          {/* Featured */}
-          <article className="hover-glow group rounded-2xl bg-white border border-border overflow-hidden">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              <img src={cur.featured.img} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
-              <span className={`absolute top-4 left-4 ${cur.featured.tagColor} text-white text-[11px] font-semibold rounded-full px-3 py-1`}>{cur.featured.tag}</span>
-            </div>
-            <div className="p-7">
-              <div className="text-xs text-forest-soft inline-flex items-center gap-1.5"><Calendar className="h-3 w-3" /> {cur.featured.date}</div>
-              <h3 className="mt-3 font-serif text-2xl sm:text-3xl text-forest leading-snug">{cur.featured.title}</h3>
-              <p className="mt-3 text-forest-soft leading-relaxed">{cur.featured.excerpt}</p>
+        <div className="mt-8 grid lg:grid-cols-[1.5fr_1fr] gap-5">
+          {/* Featured — image with overlay */}
+          <article className="group relative overflow-hidden rounded-3xl aspect-[16/11] cursor-pointer">
+            <img src={featured.img} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+            <span className={`absolute top-4 left-4 ${featured.tagColor} text-white text-[10px] font-semibold uppercase tracking-wider rounded-full px-3 py-1`}>
+              {featured.tag}
+            </span>
+            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 text-white">
+              <div className="flex items-center gap-2 text-[11px] text-white/85">
+                <Calendar className="h-3 w-3" /> {featured.date}
+              </div>
+              <h3 className="mt-2 font-serif text-xl sm:text-2xl leading-snug">{featured.title}</h3>
+              <p className="mt-2 text-[13px] text-white/80 max-w-lg leading-relaxed">{featured.excerpt}</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-white/95 group-hover:gap-2.5 transition-all">
+                Baca selengkapnya <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
           </article>
 
-          {/* Side */}
-          <div className="grid grid-rows-2 gap-6">
-            {cur.side.map((s, i) => (
-              <article key={i} className="hover-glow group rounded-2xl bg-white border border-border overflow-hidden grid grid-cols-[40%_1fr]">
-                <div className="relative overflow-hidden">
-                  <img src={s.img} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" loading="lazy" />
-                  <span className={`absolute top-3 left-3 ${s.tagColor} text-white text-[10px] font-semibold rounded-full px-2.5 py-0.5`}>{s.tag}</span>
-                </div>
-                <div className="p-5 flex flex-col justify-between">
-                  <h3 className="font-serif text-lg text-forest leading-snug">{s.title}</h3>
-                  <div className="text-xs text-forest-soft inline-flex items-center gap-1.5"><Calendar className="h-3 w-3" /> {s.date}</div>
-                </div>
-              </article>
-            ))}
+          {/* Side list — compact, clickable to feature */}
+          <div className="flex flex-col gap-3">
+            {others.slice(0, 4).map((n) => {
+              const realIdx = allNews.indexOf(n);
+              return (
+                <button
+                  key={realIdx}
+                  onClick={() => setActive(realIdx)}
+                  className="group text-left flex gap-3 p-2.5 rounded-2xl bg-white border border-transparent hover:border-border hover:shadow-[0_12px_30px_-18px_rgba(10,35,24,0.18)] transition-all"
+                >
+                  <div className="relative w-24 h-20 shrink-0 overflow-hidden rounded-xl">
+                    <img src={n.img} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <span className={`absolute top-1.5 left-1.5 ${n.tagColor} text-white text-[9px] font-semibold rounded-full px-1.5 py-0.5`}>{n.tag}</span>
+                  </div>
+                  <div className="flex-1 min-w-0 py-0.5">
+                    <h4 className="font-serif text-[15px] text-forest leading-snug line-clamp-2 group-hover:text-mesh-emerald transition-colors">{n.title}</h4>
+                    <div className="mt-1.5 text-[11px] text-forest-soft inline-flex items-center gap-1.5">
+                      <Calendar className="h-3 w-3" /> {n.date}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
-        </div>
-
-        <div className="mt-8 flex justify-center gap-2">
-          {slides.map((_, i) => (
-            <button key={i} onClick={() => setIdx(i)} className={`h-1.5 rounded-full transition-all ${idx === i ? "w-8 bg-forest" : "w-2 bg-forest/25"}`} aria-label={`Slide ${i + 1}`} />
-          ))}
         </div>
       </div>
     </section>
